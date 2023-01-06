@@ -1,0 +1,2 @@
+class InputModel(CommonModel):
+    pass
