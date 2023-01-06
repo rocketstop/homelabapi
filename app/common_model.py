@@ -1,5 +1,7 @@
 from pydantic import BaseModel, Field
 
+from app.constants import sample_api_key, sample_subject, sample_message, sample_url, sample_priority, sample_source
+
 
 class CommonModel(BaseModel):
     api_key: str = Field(example=sample_api_key)

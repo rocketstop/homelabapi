@@ -21,7 +21,9 @@ from app.health_checks_model import HealthChecksModel
 from app.input_model import InputModel
 from app.smoke_ping_model import SmokePingModel
 from app.uptime_robot_model import UptimeRobotModel
+from app.config import Config
 
+config: dict = Config.configuration_from_yaml("somefilename")
 
 app = FastAPI(
     version="v" + api_version,
@@ -112,7 +114,7 @@ async def swagger_ui_redirect():
 )
 async def default_input(payload: InputModel):
 
-    if payload.api_key == app_api_key:
+    if payload.api_key == config['app_api_key']:
 
         try:
 
@@ -146,7 +148,7 @@ async def default_input(payload: InputModel):
 )
 def healthchecks(payload: HealthChecksModel):
 
-    if payload.api_key == app_api_key:
+    if payload.api_key == config['app_api_key']:
 
         try:
             payload.message += "\n\n"
@@ -218,7 +220,7 @@ def healthchecks(payload: HealthChecksModel):
 )
 async def monit(payload: MonitModel):
 
-    if payload.api_key == app_api_key:
+    if payload.api_key == config['app_api_key']:
 
         try:
 
@@ -322,7 +324,7 @@ async def monit(payload: MonitModel):
 )
 def smokeping(payload: SmokePingModel):
 
-    if payload.api_key == app_api_key:
+    if payload.api_key == config['app_api_key']:
 
         try:
             payload.message += "\n\n"
@@ -394,7 +396,7 @@ def smokeping(payload: SmokePingModel):
 )
 async def uptimerobot(payload: UptimeRobotModel):
 
-    if payload.api_key == app_api_key:
+    if payload.api_key == config['app_api_key']:
 
         try:
 
@@ -523,7 +525,7 @@ async def uptimerobot(payload: UptimeRobotModel):
 )
 async def webhook_changedetectionio(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -556,7 +558,7 @@ async def webhook_changedetectionio(api_key: str, payload: Request):
 )
 async def webhook_headphones(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -583,7 +585,7 @@ async def webhook_headphones(api_key: str, payload: Request):
 )
 async def webhook_homeassistant(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -610,7 +612,7 @@ async def webhook_homeassistant(api_key: str, payload: Request):
 )
 async def webhook_lazylibrarian(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -637,7 +639,7 @@ async def webhook_lazylibrarian(api_key: str, payload: Request):
 )
 async def webhook_radarr(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -670,7 +672,7 @@ async def webhook_radarr(api_key: str, payload: Request):
 )
 async def webhook_sonarr(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -748,7 +750,7 @@ async def webhook_sonarr(api_key: str, payload: Request):
 )
 async def webhook_synology(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 
@@ -775,7 +777,7 @@ async def webhook_synology(api_key: str, payload: Request):
 )
 async def webhook_tailscale(api_key: str, payload: Request):
 
-    if api_key == app_api_key:
+    if api_key == config['app_api_key']:
 
         try:
 

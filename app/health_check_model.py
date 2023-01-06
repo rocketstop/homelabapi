@@ -1,3 +1,11 @@
+from .common_model import CommonModel
+from pydantic import Field
+
+from app.constants import sample_monit_date, sample_monit_action, sample_monit_description, sample_monit_event, \
+    sample_monit_host, sample_monit_process_children, sample_monit_process_cpu_percent, sample_monit_process_pid, \
+    sample_monit_process_memory, sample_monit_program_status, sample_monit_service
+
+
 class MonitModel(CommonModel):
     action: str = Field(default=None, example=sample_monit_action)
     date: str = Field(default=None, example=sample_monit_date)
