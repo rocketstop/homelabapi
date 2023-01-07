@@ -23,7 +23,7 @@ from app.smoke_ping_model import SmokePingModel
 from app.uptime_robot_model import UptimeRobotModel
 from app.config import Config
 
-config: dict = Config.configuration_from_yaml("somefilename")
+config: dict = Config.configuration_from_yaml()
 
 app = FastAPI(
     version="v" + api_version,
